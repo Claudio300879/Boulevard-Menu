@@ -1,16 +1,35 @@
-fetch('productos.json')
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boulevard Casino - Menú</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #1a1a1a; color: white; margin: 0; padding: 20px; }
+        h1 { border-bottom: 2px solid #d4af37; padding-bottom: 10px; color: #d4af37; text-align: center; font-size: 1.8em; }
+        h2 { color: #d4af37; margin-top: 30px; border-bottom: 1px solid #333; font-size: 1.2em; text-transform: uppercase; }
+        .contenedor { max-width: 500px; margin: auto; }
+        .item { background: #2a2a2a; margin-bottom: 8px; padding: 12px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; border-left: 4px solid #d4af37; }
+        .precio { font-weight: bold; color: #d4af37; }
+        footer { text-align: center; margin-top: 40px; font-size: 0.7em; color: #666; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>BOULEVARD CASINO</h1>
+        <div id="menu-lista">Cargando menú profesional...</div>
+    </div>
+    <footer>POWERED BY GATO SOFTWARE</footer>
+
+    <script>
+        fetch('productos.json')
             .then(res => res.json())
             .then(data => {
                 const contenedor = document.getElementById('menu-lista');
-                // Esto crea una lista de categorías únicas como "BEBIDAS", "COMIDAS", etc.
                 const categorias = [...new Set(data.map(p => p.cat))];
-                
                 let htmlFinal = '';
                 categorias.forEach(cat => {
-                    // Agregamos un título para cada categoría
-                    htmlFinal += `<h2 style="color: #d4af37; margin-top:30px; border-bottom: 1px solid #333;">${cat}</h2>`;
-                    
-                    // Filtramos los productos que pertenecen a esa categoría
+                    htmlFinal += `<h2>${cat}</h2>`;
                     const filtrados = data.filter(p => p.cat === cat);
                     filtrados.forEach(prod => {
                         htmlFinal += `
@@ -21,4 +40,11 @@ fetch('productos.json')
                     });
                 });
                 contenedor.innerHTML = htmlFinal;
+            })
+            .catch(err => {
+                document.getElementById('menu-lista').innerHTML = "Error al cargar los precios.";
+                console.error(err);
             });
+    </script>
+</body>
+</html>
