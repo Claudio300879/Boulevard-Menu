@@ -1,0 +1,14 @@
+[
+  {
+    "nombre": "LIC AGUA",
+    "precio": 3500
+  },
+  {
+    "nombre": "TE CON LECHE",
+    "precio": 2500
+  },
+  {
+    "nombre": "PROMO DESAYUNO",
+    "precio": 4500
+  }
+]
