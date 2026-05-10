@@ -29,7 +29,6 @@
 
   { "nombre": "EMPANADAS x 3", "precio": 4000, "cat": "4. EMPANADAS" },
   { "nombre": "⭐ PROMO: 3 EMPANADAS + GASEOSA", "precio": 4500, "cat": "4. EMPANADAS" },
-  { "nombre": "⭐ PROMO: 3 EMPANADAS + CERVEZA", "precio": 7000, "cat": "4. EMPANADAS" },
 
   { "nombre": "GRANT'S", "precio": 3500, "cat": "5. BEBIDAS CON ALCOHOL" },
   { "nombre": "CHANDÓN GRANDE", "precio": 23000, "cat": "5. BEBIDAS CON ALCOHOL" },
